@@ -10,6 +10,7 @@
     },
     "private": true,
     "dependencies": {
+        "@andres/front-api": "file:pack/andres-front-api-1.0.0.tgz",
         "@angular/animations": "~13.0.0",
         "@angular/cdk": "~13.0.0",
         "@angular/common": "~13.0.0",
