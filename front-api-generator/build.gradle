@@ -35,3 +35,10 @@ task npmRunBuild(group: 'npm', type:Exec) {
 }
 
 npmRunBuild.dependsOn npmCi
+
+task npmPack(group: 'npm', type:Exec) {
+	workingDir './src/dist'
+	commandLine 'npm', 'pack', '--pack-destination', '../..'
+}
+
+npmPack.dependsOn npmRunBuild
