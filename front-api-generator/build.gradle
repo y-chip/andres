@@ -23,3 +23,15 @@ openApiGenerate {
 }
 
 tasks.openApiGenerate.dependsOn downloadApiSpec
+
+task npmCi(group: 'npm', type:Exec) {
+	workingDir './src'
+	commandLine 'npm', 'ci'
+}
+
+task npmRunBuild(group: 'npm', type:Exec) {
+	workingDir './src'
+	commandLine 'npm', 'run', 'build'
+}
+
+npmRunBuild.dependsOn npmCi
