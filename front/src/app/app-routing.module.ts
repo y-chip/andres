@@ -28,6 +28,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AccessComponent } from './components/access/access.component';
+import {　SampleFormComponent } from "./pages/sample-form/sample-form.component";
 @NgModule({
     imports: [
         RouterModule.forRoot([
@@ -56,7 +57,8 @@ import { AccessComponent } from './components/access/access.component';
                     {path: 'pages/empty', component: EmptyComponent},
                     {path: 'icons', component: IconsComponent},
                     {path: 'blocks', component: BlocksComponent},
-                    {path: 'documentation', component: DocumentationComponent}
+                    {path: 'documentation', component: DocumentationComponent},
+                    {path: 'sampleform', component: SampleFormComponent}
                 ],
             },
             {path:'pages/landing', component: LandingComponent},
