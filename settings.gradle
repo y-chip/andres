@@ -1,2 +1,2 @@
 rootProject.name = 'andres'
-include 'back', 'front'
+include 'back', 'front', 'front-api-generator'
