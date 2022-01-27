@@ -12,3 +12,11 @@ task npmInstallFrontApiPack(group: 'npm', type:Exec) {
 }
 
 npmInstallFrontApiPack.dependsOn syncFrontApiPack
+
+task npxPrettierWrite(group: 'npm', type:Exec) {
+	commandLine 'npx', 'prettier', '--write', '.'
+}
+
+task npxPrettierCheck(group: 'npm', type:Exec) {
+	commandLine 'npx', 'prettier', '--check', '.'
+}
