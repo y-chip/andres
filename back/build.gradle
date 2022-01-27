@@ -19,3 +19,11 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+task googleJavaFormatWrite(group: 'format', type:Exec) {
+	commandLine 'zsh', '-c', 'java -jar ./formatter/google-java-format-1.13.0-all-deps.jar --replace $(git ls-files|grep \\.java$)'
+}
+
+task googleJavaFormatCheck(group: 'format', type:Exec) {
+	commandLine 'zsh', '-c', 'java -jar ./formatter/google-java-format-1.13.0-all-deps.jar --dry-run $(git ls-files|grep \\.java$)'
+}
