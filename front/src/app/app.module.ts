@@ -141,6 +141,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { AccessComponent } from './components/access/access.component';
 import { SampleFormComponent } from './pages/sample-form/sample-form.component';
+import { ComponentModule } from './components/component.module';
 
 @NgModule({
     imports: [
@@ -231,6 +232,7 @@ import { SampleFormComponent } from './pages/sample-form/sample-form.component';
         VirtualScrollerModule,
         AppCodeModule,
         StyleClassModule,
+        ComponentModule,
     ],
     declarations: [
         AppComponent,
