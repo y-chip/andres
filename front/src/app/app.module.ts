@@ -87,9 +87,7 @@ import { TreeModule } from 'primeng/tree';
 import { TreeSelectModule } from 'primeng/treeselect';
 import { TreeTableModule } from 'primeng/treetable';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
-import { BlockViewer } from './components/blockviewer/blockviewer.component';
 
-import { AppCodeModule } from './components/app-code/app.code.component';
 import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
 import { AppTopBarComponent } from './app.topbar.component';
@@ -197,7 +195,6 @@ import { ComponentModule } from './components/component.module';
         TreeSelectModule,
         TreeTableModule,
         VirtualScrollerModule,
-        AppCodeModule,
         StyleClassModule,
         ComponentModule,
     ],
@@ -209,7 +206,6 @@ import { ComponentModule } from './components/component.module';
         AppConfigComponent,
         AppMenuComponent,
         AppMenuitemComponent,
-        BlockViewer,
         SampleFormComponent,
     ],
     providers: [
