@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SampleFormService {
 
-    public SampleForm get() {
-        return new SampleForm(0, "name");
-    }
+  public SampleForm get() {
+    return new SampleForm(0, "name");
+  }
 }

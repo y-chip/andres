@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/sample-form")
 public class SampleFormController {
 
-    private final SampleFormService sampleFormService;
+  private final SampleFormService sampleFormService;
 
-    public SampleFormController(SampleFormService sampleFormService) {
-        this.sampleFormService = sampleFormService;
-    }
+  public SampleFormController(SampleFormService sampleFormService) {
+    this.sampleFormService = sampleFormService;
+  }
 
-    @GetMapping
-    public SampleForm get() {
-        return sampleFormService.get();
-    }
+  @GetMapping
+  public SampleForm get() {
+    return sampleFormService.get();
+  }
 }
