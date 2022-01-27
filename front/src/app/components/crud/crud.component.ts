@@ -113,9 +113,8 @@ export class CrudComponent implements OnInit {
 
         if (this.product.name.trim()) {
             if (this.product.id) {
-                // @ts-ignore
-                this.product.inventoryStatus = this.product.inventoryStatus
-                    .value
+                this.product.inventoryStatus = this.product.inventoryStatus // @ts-ignore
+                    .value // @ts-ignore
                     ? this.product.inventoryStatus.value
                     : this.product.inventoryStatus;
                 this.products[this.findIndexById(this.product.id)] =
@@ -130,8 +129,7 @@ export class CrudComponent implements OnInit {
                 this.product.id = this.createId();
                 this.product.code = this.createId();
                 this.product.image = 'product-placeholder.svg';
-                // @ts-ignore
-                this.product.inventoryStatus = this.product.inventoryStatus
+                this.product.inventoryStatus = this.product.inventoryStatus // @ts-ignore
                     ? this.product.inventoryStatus.value
                     : 'INSTOCK';
                 this.products.push(this.product);

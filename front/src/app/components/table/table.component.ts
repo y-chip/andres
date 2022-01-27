@@ -78,8 +78,8 @@ export class TableComponent implements OnInit {
             this.customers1 = customers;
             this.loading = false;
 
-            // @ts-ignore
             this.customers1.forEach(
+                // @ts-ignore
                 (customer) => (customer.date = new Date(customer.date))
             );
         });
