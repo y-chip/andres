@@ -1,16 +1,16 @@
 import {
-    Component,
     AfterViewInit,
+    Component,
     OnDestroy,
-    Renderer2,
     OnInit,
+    Renderer2,
 } from '@angular/core';
 import {
-    trigger,
+    animate,
     state,
     style,
     transition,
-    animate,
+    trigger,
 } from '@angular/animations';
 import { AppComponent } from './app.component';
 import { ConfigService } from './service/app.config.service';
@@ -46,35 +46,35 @@ import { Subscription } from 'rxjs';
     ],
 })
 export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
-    public menuInactiveDesktop: boolean;
+    public menuInactiveDesktop!: boolean;
 
-    public menuActiveMobile: boolean;
+    public menuActiveMobile!: boolean;
 
-    public overlayMenuActive: boolean;
+    public overlayMenuActive!: boolean;
 
     public staticMenuInactive: boolean = false;
 
-    public profileActive: boolean;
+    public profileActive!: boolean;
 
-    public topMenuActive: boolean;
+    public topMenuActive!: boolean;
 
-    public topMenuLeaving: boolean;
+    public topMenuLeaving!: boolean;
 
-    public theme: string;
+    public theme!: string;
 
-    documentClickListener: () => void;
+    documentClickListener!: () => void;
 
-    menuClick: boolean;
+    menuClick!: boolean;
 
-    topMenuButtonClick: boolean;
+    topMenuButtonClick!: boolean;
 
-    configActive: boolean;
+    configActive!: boolean;
 
-    configClick: boolean;
+    configClick!: boolean;
 
-    config: AppConfig;
+    config!: AppConfig;
 
-    subscription: Subscription;
+    subscription!: Subscription;
 
     constructor(
         public renderer: Renderer2,
@@ -175,7 +175,7 @@ export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
         this.menuClick = true;
     }
 
-    onConfigClick(event) {
+    onConfigClick(event: MouseEvent) {
         this.configClick = true;
     }
 

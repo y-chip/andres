@@ -15,9 +15,9 @@ export class AppConfigComponent implements OnInit, OnDestroy {
 
     scales: any[] = [12, 13, 14, 15, 16];
 
-    config: AppConfig;
+    config!: AppConfig;
 
-    subscription: Subscription;
+    subscription!: Subscription;
 
     constructor(
         public app: AppComponent,
@@ -38,7 +38,7 @@ export class AppConfigComponent implements OnInit, OnDestroy {
         );
     }
 
-    onConfigButtonClick(event) {
+    onConfigButtonClick(event: MouseEvent) {
         this.appMain.configActive = !this.appMain.configActive;
         this.appMain.configClick = true;
         event.preventDefault();
@@ -58,7 +58,7 @@ export class AppConfigComponent implements OnInit, OnDestroy {
         document.documentElement.style.fontSize = this.scale + 'px';
     }
 
-    onRippleChange(ripple) {
+    onRippleChange(ripple: boolean) {
         this.primengConfig.ripple = ripple;
         this.configService.updateConfig({ ...this.config, ...{ ripple } });
     }
@@ -69,6 +69,9 @@ export class AppConfigComponent implements OnInit, OnDestroy {
 
     changeTheme(theme: string, dark: boolean) {
         let themeElement = document.getElementById('theme-css');
+        if (themeElement === null) {
+            throw new Error('themeElement is required');
+        }
         themeElement.setAttribute(
             'href',
             'assets/theme/' + theme + '/theme.css'

@@ -10,7 +10,7 @@ import { SampleForm } from '@andres/front-api/model/models';
     styleUrls: ['./sample-form.component.scss'],
 })
 export class SampleFormComponent extends PageComponent implements OnInit {
-    sampleForm: SampleForm;
+    sampleForm: SampleForm | undefined;
 
     constructor(
         private sampleFormControllerService: SampleFormControllerService

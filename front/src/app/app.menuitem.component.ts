@@ -138,11 +138,11 @@ import { AppMainComponent } from './app.main.component';
 export class AppMenuitemComponent implements OnInit, OnDestroy {
     @Input() item: any;
 
-    @Input() index: number;
+    @Input() index!: number;
 
-    @Input() root: boolean;
+    @Input() root!: boolean;
 
-    @Input() parentKey: string;
+    @Input() parentKey!: string;
 
     active = false;
 
@@ -150,7 +150,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
 
     menuResetSubscription: Subscription;
 
-    key: string;
+    key!: string;
 
     constructor(
         public app: AppMainComponent,

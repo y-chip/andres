@@ -10,9 +10,6 @@ import { AppMainComponent } from './app.main.component';
                     app-menu
                     class="layout-menuitem-category"
                     *ngFor="let item of model; let i = index"
-                    [item]="item"
-                    [index]="i"
-                    [root]="true"
                     role="none"
                 >
                     <div
@@ -36,7 +33,7 @@ import { AppMainComponent } from './app.main.component';
     `,
 })
 export class AppMenuComponent implements OnInit {
-    model: any[];
+    model!: any[];
 
     constructor(public appMain: AppMainComponent) {}
 

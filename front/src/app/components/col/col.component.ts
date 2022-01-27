@@ -5,7 +5,7 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
     templateUrl: './col.component.html',
 })
 export class ColComponent implements OnInit {
-    @Input() col: number;
+    @Input() col: number = 12;
 
     @HostBinding('class')
     get class() {
