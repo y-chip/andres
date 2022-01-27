@@ -8,10 +8,9 @@ import { ConfigService } from './service/app.config.service';
 
 @Component({
     selector: 'app-config',
-    templateUrl: './app.config.component.html'
+    templateUrl: './app.config.component.html',
 })
 export class AppConfigComponent implements OnInit, OnDestroy {
-
     scale: number = 14;
 
     scales: any[] = [12, 13, 14, 15, 16];
@@ -20,16 +19,23 @@ export class AppConfigComponent implements OnInit, OnDestroy {
 
     subscription: Subscription;
 
-    constructor(public app: AppComponent, public appMain: AppMainComponent, public configService: ConfigService, public primengConfig: PrimeNGConfig) { }
+    constructor(
+        public app: AppComponent,
+        public appMain: AppMainComponent,
+        public configService: ConfigService,
+        public primengConfig: PrimeNGConfig
+    ) {}
 
     ngOnInit() {
         this.config = this.configService.config;
-        this.subscription = this.configService.configUpdate$.subscribe(config => {
-            this.config = config;
-            this.scale = 14;
+        this.subscription = this.configService.configUpdate$.subscribe(
+            (config) => {
+                this.config = config;
+                this.scale = 14;
 
-            this.applyScale();
-        });
+                this.applyScale();
+            }
+        );
     }
 
     onConfigButtonClick(event) {
@@ -54,17 +60,20 @@ export class AppConfigComponent implements OnInit, OnDestroy {
 
     onRippleChange(ripple) {
         this.primengConfig.ripple = ripple;
-        this.configService.updateConfig({...this.config, ...{ripple}});
+        this.configService.updateConfig({ ...this.config, ...{ ripple } });
     }
 
     onInputStyleChange() {
         this.configService.updateConfig(this.config);
     }
 
-    changeTheme(theme:string, dark:boolean){
+    changeTheme(theme: string, dark: boolean) {
         let themeElement = document.getElementById('theme-css');
-        themeElement.setAttribute('href', 'assets/theme/' + theme + '/theme.css');
-        this.configService.updateConfig({...this.config, ...{theme, dark}});
+        themeElement.setAttribute(
+            'href',
+            'assets/theme/' + theme + '/theme.css'
+        );
+        this.configService.updateConfig({ ...this.config, ...{ theme, dark } });
     }
 
     ngOnDestroy() {

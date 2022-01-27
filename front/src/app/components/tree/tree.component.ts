@@ -3,11 +3,9 @@ import { NodeService } from '../../service/nodeservice';
 import { TreeNode } from 'primeng/api';
 
 @Component({
-    templateUrl: './tree.component.html'
+    templateUrl: './tree.component.html',
 })
 export class TreeComponent implements OnInit {
-
-
     files1: TreeNode[];
 
     files2: TreeNode[];
@@ -25,19 +23,21 @@ export class TreeComponent implements OnInit {
     constructor(private nodeService: NodeService) {}
 
     ngOnInit() {
-        this.nodeService.getFiles().then(files => this.files1 = files);
-        this.nodeService.getFilesystem().then(files => this.files2 = files);
-        this.nodeService.getFiles().then(files => {
-            this.files3 = [{
-                label: 'Root',
-                children: files
-            }];
+        this.nodeService.getFiles().then((files) => (this.files1 = files));
+        this.nodeService.getFilesystem().then((files) => (this.files2 = files));
+        this.nodeService.getFiles().then((files) => {
+            this.files3 = [
+                {
+                    label: 'Root',
+                    children: files,
+                },
+            ];
         });
 
         this.cols = [
             { field: 'name', header: 'Name' },
             { field: 'size', header: 'Size' },
-            { field: 'type', header: 'Type' }
+            { field: 'type', header: 'Type' },
         ];
     }
 }

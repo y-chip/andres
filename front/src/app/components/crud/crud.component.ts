@@ -6,10 +6,9 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 @Component({
     templateUrl: './crud.component.html',
     providers: [MessageService, ConfirmationService],
-    styleUrls: ['../../../assets/demo/badges.scss']
+    styleUrls: ['../../../assets/demo/badges.scss'],
 })
 export class CrudComponent implements OnInit {
-
     productDialog: boolean;
 
     deleteProductDialog: boolean = false;
@@ -30,24 +29,29 @@ export class CrudComponent implements OnInit {
 
     rowsPerPageOptions = [5, 10, 20];
 
-    constructor(private productService: ProductService, private messageService: MessageService,
-                private confirmationService: ConfirmationService) {}
+    constructor(
+        private productService: ProductService,
+        private messageService: MessageService,
+        private confirmationService: ConfirmationService
+    ) {}
 
     ngOnInit() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService
+            .getProducts()
+            .then((data) => (this.products = data));
 
         this.cols = [
-            {field: 'name', header: 'Name'},
-            {field: 'price', header: 'Price'},
-            {field: 'category', header: 'Category'},
-            {field: 'rating', header: 'Reviews'},
-            {field: 'inventoryStatus', header: 'Status'}
+            { field: 'name', header: 'Name' },
+            { field: 'price', header: 'Price' },
+            { field: 'category', header: 'Category' },
+            { field: 'rating', header: 'Reviews' },
+            { field: 'inventoryStatus', header: 'Status' },
         ];
 
         this.statuses = [
-            {label: 'INSTOCK', value: 'instock'},
-            {label: 'LOWSTOCK', value: 'lowstock'},
-            {label: 'OUTOFSTOCK', value: 'outofstock'}
+            { label: 'INSTOCK', value: 'instock' },
+            { label: 'LOWSTOCK', value: 'lowstock' },
+            { label: 'OUTOFSTOCK', value: 'outofstock' },
         ];
     }
 
@@ -62,26 +66,40 @@ export class CrudComponent implements OnInit {
     }
 
     editProduct(product: Product) {
-        this.product = {...product};
+        this.product = { ...product };
         this.productDialog = true;
     }
 
     deleteProduct(product: Product) {
         this.deleteProductDialog = true;
-        this.product = {...product};
+        this.product = { ...product };
     }
 
-    confirmDeleteSelected(){
+    confirmDeleteSelected() {
         this.deleteProductsDialog = false;
-        this.products = this.products.filter(val => !this.selectedProducts.includes(val));
-        this.messageService.add({severity: 'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
+        this.products = this.products.filter(
+            (val) => !this.selectedProducts.includes(val)
+        );
+        this.messageService.add({
+            severity: 'success',
+            summary: 'Successful',
+            detail: 'Products Deleted',
+            life: 3000,
+        });
         this.selectedProducts = null;
     }
 
-    confirmDelete(){
+    confirmDelete() {
         this.deleteProductDialog = false;
-        this.products = this.products.filter(val => val.id !== this.product.id);
-        this.messageService.add({severity: 'success', summary: 'Successful', detail: 'Product Deleted', life: 3000});
+        this.products = this.products.filter(
+            (val) => val.id !== this.product.id
+        );
+        this.messageService.add({
+            severity: 'success',
+            summary: 'Successful',
+            detail: 'Product Deleted',
+            life: 3000,
+        });
         this.product = {};
     }
 
@@ -96,17 +114,33 @@ export class CrudComponent implements OnInit {
         if (this.product.name.trim()) {
             if (this.product.id) {
                 // @ts-ignore
-                this.product.inventoryStatus = this.product.inventoryStatus.value ? this.product.inventoryStatus.value: this.product.inventoryStatus;
-                this.products[this.findIndexById(this.product.id)] = this.product;
-                this.messageService.add({severity: 'success', summary: 'Successful', detail: 'Product Updated', life: 3000});
+                this.product.inventoryStatus = this.product.inventoryStatus
+                    .value
+                    ? this.product.inventoryStatus.value
+                    : this.product.inventoryStatus;
+                this.products[this.findIndexById(this.product.id)] =
+                    this.product;
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Successful',
+                    detail: 'Product Updated',
+                    life: 3000,
+                });
             } else {
                 this.product.id = this.createId();
                 this.product.code = this.createId();
                 this.product.image = 'product-placeholder.svg';
                 // @ts-ignore
-                this.product.inventoryStatus = this.product.inventoryStatus ? this.product.inventoryStatus.value : 'INSTOCK';
+                this.product.inventoryStatus = this.product.inventoryStatus
+                    ? this.product.inventoryStatus.value
+                    : 'INSTOCK';
                 this.products.push(this.product);
-                this.messageService.add({severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000});
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Successful',
+                    detail: 'Product Created',
+                    life: 3000,
+                });
             }
 
             this.products = [...this.products];
@@ -129,7 +163,8 @@ export class CrudComponent implements OnInit {
 
     createId(): string {
         let id = '';
-        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const chars =
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         for (let i = 0; i < 5; i++) {
             id += chars.charAt(Math.floor(Math.random() * chars.length));
         }

@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
     templateUrl: './misc.component.html',
 })
 export class MiscComponent implements OnInit {
-
     value = 0;
 
     ngOnInit() {

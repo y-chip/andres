@@ -1,5 +1,17 @@
-import { Component, AfterViewInit, OnDestroy, Renderer2, OnInit } from '@angular/core';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import {
+    Component,
+    AfterViewInit,
+    OnDestroy,
+    Renderer2,
+    OnInit,
+} from '@angular/core';
+import {
+    trigger,
+    state,
+    style,
+    transition,
+    animate,
+} from '@angular/animations';
 import { AppComponent } from './app.component';
 import { ConfigService } from './service/app.config.service';
 import { AppConfig } from './api/appconfig';
@@ -10,19 +22,30 @@ import { Subscription } from 'rxjs';
     templateUrl: './app.main.component.html',
     animations: [
         trigger('submenu', [
-            state('hidden', style({
-                height: '0px'
-            })),
-            state('visible', style({
-                height: '*'
-            })),
-            transition('visible => hidden', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
-            transition('hidden => visible', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
-        ])
-    ]
+            state(
+                'hidden',
+                style({
+                    height: '0px',
+                })
+            ),
+            state(
+                'visible',
+                style({
+                    height: '*',
+                })
+            ),
+            transition(
+                'visible => hidden',
+                animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')
+            ),
+            transition(
+                'hidden => visible',
+                animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')
+            ),
+        ]),
+    ],
 })
 export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
-
     public menuInactiveDesktop: boolean;
 
     public menuActiveMobile: boolean;
@@ -52,43 +75,52 @@ export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
     config: AppConfig;
 
     subscription: Subscription;
-    
-    constructor(public renderer: Renderer2, public app: AppComponent, public configService: ConfigService) { }
+
+    constructor(
+        public renderer: Renderer2,
+        public app: AppComponent,
+        public configService: ConfigService
+    ) {}
 
     ngOnInit() {
         this.config = this.configService.config;
-        this.subscription = this.configService.configUpdate$.subscribe(config => this.config = config);
+        this.subscription = this.configService.configUpdate$.subscribe(
+            (config) => (this.config = config)
+        );
     }
 
     ngAfterViewInit() {
         // hides the overlay menu and top menu if outside is clicked
-        this.documentClickListener = this.renderer.listen('body', 'click', (event) => {
-            if (!this.isDesktop()) {
-                if (!this.menuClick) {
-                    this.menuActiveMobile = false;
+        this.documentClickListener = this.renderer.listen(
+            'body',
+            'click',
+            (event) => {
+                if (!this.isDesktop()) {
+                    if (!this.menuClick) {
+                        this.menuActiveMobile = false;
+                    }
+
+                    if (!this.topMenuButtonClick) {
+                        this.hideTopMenu();
+                    }
+                } else {
+                    if (!this.menuClick && this.isOverlay()) {
+                        this.menuInactiveDesktop = true;
+                    }
+                    if (!this.menuClick) {
+                        this.overlayMenuActive = false;
+                    }
                 }
 
-                if (!this.topMenuButtonClick) {
-                    this.hideTopMenu();
+                if (this.configActive && !this.configClick) {
+                    this.configActive = false;
                 }
-            }
-            else {
-                if (!this.menuClick && this.isOverlay()) {
-                    this.menuInactiveDesktop = true;
-                }
-                if (!this.menuClick){
-                    this.overlayMenuActive = false;
-                }
-            }
 
-            if (this.configActive && !this.configClick) {
-                this.configActive = false;
+                this.configClick = false;
+                this.menuClick = false;
+                this.topMenuButtonClick = false;
             }
-
-            this.configClick = false;
-            this.menuClick = false;
-            this.topMenuButtonClick = false;
-        });
+        );
     }
 
     toggleMenu(event: Event) {
@@ -96,18 +128,16 @@ export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
 
         if (this.isDesktop()) {
             if (this.app.menuMode === 'overlay') {
-                if(this.menuActiveMobile === true) {
+                if (this.menuActiveMobile === true) {
                     this.overlayMenuActive = true;
                 }
 
                 this.overlayMenuActive = !this.overlayMenuActive;
                 this.menuActiveMobile = false;
-            }
-            else if (this.app.menuMode === 'static') {
+            } else if (this.app.menuMode === 'static') {
                 this.staticMenuInactive = !this.staticMenuInactive;
             }
-        }
-        else {
+        } else {
             this.menuActiveMobile = !this.menuActiveMobile;
             this.topMenuActive = false;
         }
@@ -161,7 +191,7 @@ export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
         return window.innerWidth > 1024;
     }
 
-    isMobile(){
+    isMobile() {
         return window.innerWidth < 1024;
     }
 
@@ -173,7 +203,6 @@ export class AppMainComponent implements AfterViewInit, OnDestroy, OnInit {
         if (this.documentClickListener) {
             this.documentClickListener();
         }
-
 
         if (this.subscription) {
             this.subscription.unsubscribe();

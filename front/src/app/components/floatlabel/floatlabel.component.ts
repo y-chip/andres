@@ -5,7 +5,6 @@ import { CountryService } from '../../service/countryservice';
     templateUrl: './floatlabel.component.html',
 })
 export class FloatLabelComponent implements OnInit {
-
     countries: any[];
 
     cities: any[];
@@ -38,16 +37,16 @@ export class FloatLabelComponent implements OnInit {
 
     constructor(private countryService: CountryService) {
         this.cities = [
-            {name: 'New York', code: 'NY'},
-            {name: 'Rome', code: 'RM'},
-            {name: 'London', code: 'LDN'},
-            {name: 'Istanbul', code: 'IST'},
-            {name: 'Paris', code: 'PRS'}
+            { name: 'New York', code: 'NY' },
+            { name: 'Rome', code: 'RM' },
+            { name: 'London', code: 'LDN' },
+            { name: 'Istanbul', code: 'IST' },
+            { name: 'Paris', code: 'PRS' },
         ];
     }
 
     ngOnInit() {
-        this.countryService.getCountries().then(countries => {
+        this.countryService.getCountries().then((countries) => {
             this.countries = countries;
         });
     }

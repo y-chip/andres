@@ -9,19 +9,23 @@ import { ConfirmationComponent } from './confirmation.component';
 import { MenusComponent } from './menus.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule,
-    RouterModule.forChild([
-        {path:'',component: MenusComponent, children:[
-				{path:'', redirectTo: 'personal', pathMatch: 'full'},
-				{path: 'personal', component: PersonalComponent},
-				{path: 'confirmation', component: ConfirmationComponent},
-				{path: 'seat', component: SeatComponent},
-				{path: 'payment', component: PaymentComponent}
-        ]}
-    ])
-  ],
-  exports: [RouterModule]
+    declarations: [],
+    imports: [
+        CommonModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: MenusComponent,
+                children: [
+                    { path: '', redirectTo: 'personal', pathMatch: 'full' },
+                    { path: 'personal', component: PersonalComponent },
+                    { path: 'confirmation', component: ConfirmationComponent },
+                    { path: 'seat', component: SeatComponent },
+                    { path: 'payment', component: PaymentComponent },
+                ],
+            },
+        ]),
+    ],
+    exports: [RouterModule],
 })
-export class MenusModule { }
+export class MenusModule {}

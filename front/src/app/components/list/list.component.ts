@@ -5,10 +5,9 @@ import { ProductService } from '../../service/productservice';
 
 @Component({
     templateUrl: './list.component.html',
-    styleUrls: ['../../../assets/demo/badges.scss']
+    styleUrls: ['../../../assets/demo/badges.scss'],
 })
 export class ListComponent implements OnInit {
-
     products: Product[];
 
     sortOptions: SelectItem[];
@@ -26,30 +25,34 @@ export class ListComponent implements OnInit {
     constructor(private productService: ProductService) {}
 
     ngOnInit() {
-        this.productService.getProducts().then(data => this.products = data);
+        this.productService
+            .getProducts()
+            .then((data) => (this.products = data));
 
         this.sourceCities = [
-            {name: 'San Francisco', code: 'SF'},
-            {name: 'London', code: 'LDN'},
-            {name: 'Paris', code: 'PRS'},
-            {name: 'Istanbul', code: 'IST'},
-            {name: 'Berlin', code: 'BRL'},
-            {name: 'Barcelona', code: 'BRC'},
-            {name: 'Rome', code: 'RM'}];
+            { name: 'San Francisco', code: 'SF' },
+            { name: 'London', code: 'LDN' },
+            { name: 'Paris', code: 'PRS' },
+            { name: 'Istanbul', code: 'IST' },
+            { name: 'Berlin', code: 'BRL' },
+            { name: 'Barcelona', code: 'BRC' },
+            { name: 'Rome', code: 'RM' },
+        ];
         this.targetCities = [];
 
         this.orderCities = [
-            {name: 'San Francisco', code: 'SF'},
-            {name: 'London', code: 'LDN'},
-            {name: 'Paris', code: 'PRS'},
-            {name: 'Istanbul', code: 'IST'},
-            {name: 'Berlin', code: 'BRL'},
-            {name: 'Barcelona', code: 'BRC'},
-            {name: 'Rome', code: 'RM'}];
+            { name: 'San Francisco', code: 'SF' },
+            { name: 'London', code: 'LDN' },
+            { name: 'Paris', code: 'PRS' },
+            { name: 'Istanbul', code: 'IST' },
+            { name: 'Berlin', code: 'BRL' },
+            { name: 'Barcelona', code: 'BRC' },
+            { name: 'Rome', code: 'RM' },
+        ];
 
         this.sortOptions = [
-            {label: 'Price High to Low', value: '!price'},
-            {label: 'Price Low to High', value: 'price'}
+            { label: 'Price High to Low', value: '!price' },
+            { label: 'Price Low to High', value: 'price' },
         ];
     }
 
