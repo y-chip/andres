@@ -18,6 +18,6 @@ public class SampleFormController {
 
   @GetMapping
   public SampleForm get() {
-    return sampleFormService.get();
+    return sampleFormService.get(1);
   }
 }
