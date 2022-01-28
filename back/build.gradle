@@ -8,12 +8,24 @@ group = 'com.yamamoto.yuta'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
+sourceSets {
+    main {
+        java {
+            srcDir 'src/gen/java'
+        }
+        resources {
+            srcDir 'src/gen/resources'
+        }
+    }
+}
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springdoc:springdoc-openapi-ui:1.6.5'
     implementation 'com.h2database:h2'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.1'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
