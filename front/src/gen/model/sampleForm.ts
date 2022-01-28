@@ -12,13 +12,13 @@
 
 
 export interface SampleForm { 
-    id?: number;
-    fieldText?: string;
-    fieldTextarea?: string;
-    fieldNumber?: number;
-    fieldDate?: Date;
-    fieldSelect?: number;
-    fieldRadio?: number;
-    fieldSwitch?: boolean;
+    id: number | null;
+    fieldText: string | null;
+    fieldTextarea: string | null;
+    fieldNumber: number | null;
+    fieldDate: Date | null;
+    fieldSelect: number | null;
+    fieldRadio: number | null;
+    fieldSwitch: boolean | null;
 }
 

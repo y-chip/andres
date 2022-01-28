@@ -2,24 +2,33 @@ package com.yamamoto.yuta.andres.presentation.resource;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.yamamoto.yuta.andres.infrastructure.repository.entity.Sample;
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.util.Date;
 
 public class SampleForm {
 
+  @Schema(required = true, nullable = true)
   private final Integer id;
 
+  @Schema(required = true, nullable = true)
   private final String fieldText;
 
+  @Schema(required = true, nullable = true)
   private final String fieldTextarea;
 
+  @Schema(required = true, nullable = true)
   private final Integer fieldNumber;
 
+  @Schema(required = true, nullable = true)
   private final Date fieldDate;
 
+  @Schema(required = true, nullable = true)
   private final Integer fieldSelect;
 
+  @Schema(required = true, nullable = true)
   private final Integer fieldRadio;
 
+  @Schema(required = true, nullable = true)
   private final Boolean fieldSwitch;
 
   public SampleForm(

@@ -78,36 +78,54 @@
     "components": {
         "schemas": {
             "SampleForm": {
+                "required": [
+                    "fieldDate",
+                    "fieldNumber",
+                    "fieldRadio",
+                    "fieldSelect",
+                    "fieldSwitch",
+                    "fieldText",
+                    "fieldTextarea",
+                    "id"
+                ],
                 "type": "object",
                 "properties": {
                     "id": {
                         "type": "integer",
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "fieldText": {
-                        "type": "string"
+                        "type": "string",
+                        "nullable": true
                     },
                     "fieldTextarea": {
-                        "type": "string"
+                        "type": "string",
+                        "nullable": true
                     },
                     "fieldNumber": {
                         "type": "integer",
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "fieldDate": {
                         "type": "string",
-                        "format": "date-time"
+                        "format": "date-time",
+                        "nullable": true
                     },
                     "fieldSelect": {
                         "type": "integer",
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "fieldRadio": {
                         "type": "integer",
-                        "format": "int32"
+                        "format": "int32",
+                        "nullable": true
                     },
                     "fieldSwitch": {
-                        "type": "boolean"
+                        "type": "boolean",
+                        "nullable": true
                     }
                 }
             }
