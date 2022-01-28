@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'and-field-text',
@@ -9,7 +9,9 @@ export class TextComponent implements OnInit {
 
     @Input() label: string = 'label';
 
-    @Input() value: string = '';
+    @Input() value: string | null = null;
+
+    @Output() valueChange = new EventEmitter<string | null>();
 
     constructor() {}
 
@@ -17,5 +19,9 @@ export class TextComponent implements OnInit {
         if (this.name === undefined) {
             throw new Error('name is required');
         }
+    }
+
+    onChange(value: string | null): void {
+        this.valueChange.emit(value);
     }
 }

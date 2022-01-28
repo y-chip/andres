@@ -1,7 +1,11 @@
 <and-gird>
     <and-col>
-        <and-card title="Sample Form">
-            <and-field-text name="string" label="string"></and-field-text>
+        <and-card title="Sample Form" *ngIf="sampleForm !== undefined">
+            <and-field-text
+                name="text"
+                label="text"
+                [(value)]="sampleForm.fieldText"
+            ></and-field-text>
             <and-button label="Submit" (click)="onSubmit()"></and-button>
         </and-card>
     </and-col>
