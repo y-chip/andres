@@ -12,6 +12,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     registry
         .addMapping("/**")
         .allowedOrigins("http://localhost:4200", "https://y-chip.github.io")
+        .allowedMethods("*")
         .allowCredentials(true)
         .maxAge(3600);
   }
