@@ -41,34 +41,6 @@ public class SampleForm {
     this.fieldSwitch = fieldSwitch;
   }
 
-  public SampleForm(Sample sample) {
-    this.id = sample.getId();
-    this.fieldText = sample.getFieldText();
-    this.fieldTextarea = sample.getFieldTextarea();
-    this.fieldNumber = sample.getFieldNumber();
-    this.fieldDate = sample.getFieldDate();
-    this.fieldSelect = sample.getFieldSelect();
-    this.fieldRadio = sample.getFieldRadio();
-    this.fieldSwitch = sample.getFieldSwitch();
-  }
-
-  @JsonIgnore
-  public Sample genSample(Integer id) {
-
-    var sample = new Sample();
-
-    sample.setId(id);
-    sample.setFieldText(this.fieldText);
-    sample.setFieldTextarea(this.fieldTextarea);
-    sample.setFieldNumber(this.fieldNumber);
-    sample.setFieldDate(this.fieldDate);
-    sample.setFieldSelect(this.fieldSelect);
-    sample.setFieldRadio(this.fieldRadio);
-    sample.setFieldSwitch(this.fieldSwitch);
-
-    return sample;
-  }
-
   public Integer getId() {
     return id;
   }
@@ -99,5 +71,33 @@ public class SampleForm {
 
   public Boolean getFieldSwitch() {
     return fieldSwitch;
+  }
+
+  public SampleForm(Sample sample) {
+    this.id = sample.getId();
+    this.fieldText = sample.getFieldText();
+    this.fieldTextarea = sample.getFieldTextarea();
+    this.fieldNumber = sample.getFieldNumber();
+    this.fieldDate = sample.getFieldDate();
+    this.fieldSelect = sample.getFieldSelect();
+    this.fieldRadio = sample.getFieldRadio();
+    this.fieldSwitch = sample.getFieldSwitch();
+  }
+
+  @JsonIgnore
+  public Sample genSample(Integer id) {
+
+    var sample = new Sample();
+
+    sample.setId(id);
+    sample.setFieldText(this.fieldText);
+    sample.setFieldTextarea(this.fieldTextarea);
+    sample.setFieldNumber(this.fieldNumber);
+    sample.setFieldDate(this.fieldDate);
+    sample.setFieldSelect(this.fieldSelect);
+    sample.setFieldRadio(this.fieldRadio);
+    sample.setFieldSwitch(this.fieldSwitch);
+
+    return sample;
   }
 }
