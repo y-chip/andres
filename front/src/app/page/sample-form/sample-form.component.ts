@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PageComponent } from '../page.component';
-import { SampleFormControllerService } from '@andres/front-api';
 import { tap } from 'rxjs';
-import { SampleForm } from '@andres/front-api/model/models';
+import { SampleFormControllerService } from '../../../gen/api/sampleFormController.service';
+import { SampleForm } from '../../../gen/model/sampleForm';
 
 @Component({
     selector: 'app-sample-form',
