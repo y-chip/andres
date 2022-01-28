@@ -91,6 +91,7 @@ import { AppMenuitemComponent } from './layout/menuitem/app.menuitem.component';
 import { AppFooterComponent } from './layout/footer/app.footer.component';
 import { AppConfigComponent } from './layout/config/app.config.component';
 import { TextComponent } from './field/text/text.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
     declarations: [
@@ -103,6 +104,7 @@ import { TextComponent } from './field/text/text.component';
         ColComponent,
         CardComponent,
         TextComponent,
+        ButtonComponent,
     ],
     imports: [
         StyleClassModule,
@@ -197,6 +199,7 @@ import { TextComponent } from './field/text/text.component';
         ColComponent,
         CardComponent,
         TextComponent,
+        ButtonComponent,
     ],
 })
 export class ComponentModule {}
