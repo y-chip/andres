@@ -9,6 +9,8 @@ import { SampleForm } from '../../../gen/model/sampleForm';
     templateUrl: './sample-form.component.html',
 })
 export class SampleFormComponent extends PageComponent implements OnInit {
+    id: number = 1;
+
     sampleForm: SampleForm | undefined;
 
     constructor(
@@ -19,7 +21,7 @@ export class SampleFormComponent extends PageComponent implements OnInit {
 
     ngOnInit(): void {
         this.http([
-            this.sampleFormControllerService.get().pipe(
+            this.sampleFormControllerService.get(this.id).pipe(
                 tap((sampleForm) => {
                     this.sampleForm = sampleForm;
                 })

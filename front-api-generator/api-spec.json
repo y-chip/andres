@@ -11,12 +11,23 @@
         }
     ],
     "paths": {
-        "/sample-form": {
+        "/sample-form/{id}": {
             "get": {
                 "tags": [
                     "sample-form-controller"
                 ],
                 "operationId": "get",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "OK",
