@@ -24,10 +24,14 @@ openApiGenerate {
 
 tasks.openApiGenerate.dependsOn downloadApiSpec
 
-task copyToFront(group: 'api', type: Sync) {
+task copyFrontApiToFront(group: 'api', type: Sync) {
     from 'src'
     into '../front/src/gen'
     include 'api.module.ts', 'configuration.ts', 'encoder.ts', 'variables.ts', 'api/**', 'model/**'
 }
 
-copyToFront.dependsOn tasks.openApiGenerate
+copyFrontApiToFront.dependsOn tasks.openApiGenerate
+
+task generateFrontApi(group: 'api') {}
+
+generateFrontApi.dependsOn copyFrontApiToFront
