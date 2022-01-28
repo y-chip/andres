@@ -28,4 +28,13 @@ export class SampleFormComponent extends PageComponent implements OnInit {
             ),
         ]);
     }
+
+    onSubmit(): void {
+        if (this.sampleForm === undefined) {
+            throw new Error('sampleForm is required');
+        }
+        this.http([
+            this.sampleFormControllerService.put(this.id, this.sampleForm),
+        ]);
+    }
 }
