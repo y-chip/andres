@@ -41,8 +41,30 @@
                         "type": "integer",
                         "format": "int32"
                     },
-                    "name": {
+                    "fieldText": {
                         "type": "string"
+                    },
+                    "fieldTextarea": {
+                        "type": "string"
+                    },
+                    "fieldNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fieldDate": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "fieldSelect": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fieldRadio": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "fieldSwitch": {
+                        "type": "boolean"
                     }
                 }
             }
