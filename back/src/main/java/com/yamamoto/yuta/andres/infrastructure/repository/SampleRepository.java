@@ -17,4 +17,8 @@ public class SampleRepository {
   public Optional<Sample> selectByPrimaryKey(Integer id) {
     return Optional.ofNullable(sampleMapper.selectByPrimaryKey(id));
   }
+
+  public void updateByPrimaryKey(Sample sample) {
+    sampleMapper.updateByPrimaryKey(sample);
+  }
 }

@@ -20,4 +20,8 @@ public class SampleFormService {
         .map(SampleForm::new)
         .orElseThrow(() -> new UnexpectedException(String.format("Sampleが取得できませんでした。（id：%s）", id)));
   }
+
+  public void post(Integer id, SampleForm sampleForm) {
+    sampleRepository.updateByPrimaryKey(sampleForm.genSample(id));
+  }
 }
