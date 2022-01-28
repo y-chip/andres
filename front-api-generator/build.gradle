@@ -24,21 +24,10 @@ openApiGenerate {
 
 tasks.openApiGenerate.dependsOn downloadApiSpec
 
-task npmCi(group: 'npm', type: Exec) {
-    workingDir './src'
-    commandLine 'npm', 'ci'
+task copyToFront(group: 'api', type: Sync) {
+    from 'src'
+    into '../front/src/gen'
+    include 'api.module.ts', 'configuration.ts', 'encoder.ts', 'variables.ts', 'api/**', 'model/**'
 }
 
-task npmRunBuild(group: 'npm', type: Exec) {
-    workingDir './src'
-    commandLine 'npm', 'run', 'build'
-}
-
-npmRunBuild.dependsOn npmCi
-
-task npmPack(group: 'npm', type: Exec) {
-    workingDir './src/dist'
-    commandLine 'npm', 'pack', '--pack-destination', '../../pack'
-}
-
-npmPack.dependsOn npmRunBuild
+copyToFront.dependsOn tasks.openApiGenerate

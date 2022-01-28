@@ -2,17 +2,6 @@ task npmStart(group: 'npm', type: Exec) {
     commandLine 'npm', 'start'
 }
 
-task syncFrontApiPack(type: Sync) {
-    from '../front-api-generator/pack'
-    into './pack'
-}
-
-task npmInstallFrontApiPack(group: 'npm', type: Exec) {
-    commandLine 'npm', 'install', './pack/andres-front-api-1.0.0.tgz', '--legacy-peer-deps'
-}
-
-npmInstallFrontApiPack.dependsOn syncFrontApiPack
-
 task npxPrettierWrite(group: 'npm', type: Exec) {
     commandLine 'npx', 'prettier', '--write', '.'
 }
