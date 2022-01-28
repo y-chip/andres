@@ -1,44 +1,44 @@
 plugins {
-	id "org.openapi.generator" version "5.3.0"
+    id "org.openapi.generator" version "5.3.0"
 }
 
 task downloadApiSpec doLast {
-	def file = new File("$projectDir/api-spec.json")
-	file.delete()
-	file.setText(groovy.json.JsonOutput.prettyPrint(
-		new URL('http://localhost:8080/v3/api-docs').getText('UTF-8')), 'UTF-8')
+    def file = new File("$projectDir/api-spec.json")
+    file.delete()
+    file.setText(groovy.json.JsonOutput.prettyPrint(
+            new URL('http://localhost:8080/v3/api-docs').getText('UTF-8')), 'UTF-8')
 }
 
 openApiGenerate {
-	generatorName = "typescript-angular"
-	inputSpec = "$projectDir/api-spec.json".toString()
-	outputDir = "$projectDir/src".toString()
-	additionalProperties = [
-		npmName: "@andres/front-api",
-		npmVersion: "1.0.0",
-		ngVersion: "13.0.3",
-		providedInRoot: "true"
-	]
-	typeMappings = ["DateTime": "Date"]
+    generatorName = "typescript-angular"
+    inputSpec = "$projectDir/api-spec.json".toString()
+    outputDir = "$projectDir/src".toString()
+    additionalProperties = [
+            npmName       : "@andres/front-api",
+            npmVersion    : "1.0.0",
+            ngVersion     : "13.0.3",
+            providedInRoot: "true"
+    ]
+    typeMappings = ["DateTime": "Date"]
 }
 
 tasks.openApiGenerate.dependsOn downloadApiSpec
 
-task npmCi(group: 'npm', type:Exec) {
-	workingDir './src'
-	commandLine 'npm', 'ci'
+task npmCi(group: 'npm', type: Exec) {
+    workingDir './src'
+    commandLine 'npm', 'ci'
 }
 
-task npmRunBuild(group: 'npm', type:Exec) {
-	workingDir './src'
-	commandLine 'npm', 'run', 'build'
+task npmRunBuild(group: 'npm', type: Exec) {
+    workingDir './src'
+    commandLine 'npm', 'run', 'build'
 }
 
 npmRunBuild.dependsOn npmCi
 
-task npmPack(group: 'npm', type:Exec) {
-	workingDir './src/dist'
-	commandLine 'npm', 'pack', '--pack-destination', '../../pack'
+task npmPack(group: 'npm', type: Exec) {
+    workingDir './src/dist'
+    commandLine 'npm', 'pack', '--pack-destination', '../../pack'
 }
 
 npmPack.dependsOn npmRunBuild
