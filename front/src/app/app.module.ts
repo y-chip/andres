@@ -13,7 +13,7 @@ import { ComponentModule } from './component/component.module';
 
 import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
-import { SampleFormComponent } from './pages/sample-form/sample-form.component';
+import { SampleFormComponent } from './page/sample-form/sample-form.component';
 
 import { MenuService } from './service/app.menu.service';
 import { ConfigService } from './service/app.config.service';

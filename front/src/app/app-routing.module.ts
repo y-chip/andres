@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppMainComponent } from './app.main.component';
-import { SampleFormComponent } from './pages/sample-form/sample-form.component';
+import { SampleFormComponent } from './page/sample-form/sample-form.component';
 
 @NgModule({
     imports: [
