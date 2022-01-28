@@ -40,7 +40,7 @@ export class AppMenuComponent implements OnInit {
     ngOnInit() {
         this.model = [
             {
-                label: 'Original',
+                label: 'Page',
                 items: [
                     {
                         label: 'Sample Form',
@@ -50,41 +50,82 @@ export class AppMenuComponent implements OnInit {
                 ],
             },
             {
-                label: 'Hierarchy',
+                label: 'Hierarchy Menu',
                 items: [
                     {
-                        label: 'Submenu 1',
+                        label: 'Submenu',
                         icon: 'pi pi-fw pi-bookmark',
                         items: [
                             {
-                                label: 'Submenu 1.1',
+                                label: 'Submenu 1',
                                 icon: 'pi pi-fw pi-bookmark',
                                 items: [
                                     {
-                                        label: 'Submenu 1.1.1',
+                                        label: 'Submenu 1.1',
                                         icon: 'pi pi-fw pi-bookmark',
                                     },
                                     {
-                                        label: 'Submenu 1.1.2',
+                                        label: 'Submenu 1.2',
                                         icon: 'pi pi-fw pi-bookmark',
                                     },
                                     {
-                                        label: 'Submenu 1.1.3',
+                                        label: 'Submenu 1.3',
                                         icon: 'pi pi-fw pi-bookmark',
                                     },
                                 ],
                             },
                             {
-                                label: 'Submenu 1.2',
+                                label: 'Submenu 2',
                                 icon: 'pi pi-fw pi-bookmark',
                                 items: [
                                     {
-                                        label: 'Submenu 1.2.1',
+                                        label: 'Submenu 2.1',
                                         icon: 'pi pi-fw pi-bookmark',
                                     },
                                 ],
                             },
                         ],
+                    },
+                ],
+            },
+            {
+                label: 'Normal Menu',
+                items: [
+                    {
+                        label: 'Menu 1',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 2',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 3',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 4',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 5',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 6',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 7',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 8',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Menu 9',
+                        icon: 'pi pi-fw pi-bookmark',
                     },
                 ],
             },
