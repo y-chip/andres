@@ -15,9 +15,6 @@ import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
 import { SampleFormComponent } from './page/sample-form/sample-form.component';
 
-import { MenuService } from './service/app.menu.service';
-import { ConfigService } from './service/app.config.service';
-
 @NgModule({
     imports: [
         BrowserAnimationsModule,
@@ -28,11 +25,7 @@ import { ConfigService } from './service/app.config.service';
         ComponentModule,
     ],
     declarations: [AppComponent, AppMainComponent, SampleFormComponent],
-    providers: [
-        { provide: LocationStrategy, useClass: HashLocationStrategy },
-        MenuService,
-        ConfigService,
-    ],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
