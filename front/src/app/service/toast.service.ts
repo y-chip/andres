@@ -4,12 +4,12 @@ import { MessageService as PrimeNgMessageService } from 'primeng/api';
 @Injectable({
     providedIn: 'root',
 })
-export class MessageService {
+export class ToastService {
     constructor(private primeNgMessageService: PrimeNgMessageService) {}
 
     addInfo(summary: string, detail: string) {
         this.primeNgMessageService.add({
-            key: 'message',
+            key: 'toast',
             severity: 'info',
             summary: summary,
             detail: detail,
@@ -18,7 +18,7 @@ export class MessageService {
 
     addSuccess(summary: string, detail: string) {
         this.primeNgMessageService.add({
-            key: 'message',
+            key: 'toast',
             severity: 'success',
             summary: summary,
             detail: detail,
@@ -27,7 +27,7 @@ export class MessageService {
 
     addWarn(summary: string, detail: string) {
         this.primeNgMessageService.add({
-            key: 'message',
+            key: 'toast',
             severity: 'warn',
             summary: summary,
             detail: detail,
@@ -36,7 +36,7 @@ export class MessageService {
 
     addError(summary: string, detail: string) {
         this.primeNgMessageService.add({
-            key: 'message',
+            key: 'toast',
             severity: 'error',
             summary: summary,
             detail: detail,
@@ -44,6 +44,6 @@ export class MessageService {
     }
 
     clear() {
-        this.primeNgMessageService.clear('message');
+        this.primeNgMessageService.clear('toast');
     }
 }
