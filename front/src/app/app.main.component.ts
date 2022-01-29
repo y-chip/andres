@@ -14,7 +14,7 @@ import {
 } from '@angular/animations';
 import { AppComponent } from './app.component';
 import { ConfigService } from './service/app.config.service';
-import { AppConfig } from './api/appconfig';
+import { AppConfig } from './component/layout/config/appconfig';
 import { Subscription } from 'rxjs';
 
 @Component({
