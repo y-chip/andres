@@ -39,7 +39,9 @@ export class SampleFormComponent extends PageComponent implements OnInit {
         this.http([
             this.sampleFormControllerService
                 .put(this.id, this.sampleForm)
-                .pipe(tap(() => this.toastService.addInfo('登録しました。'))),
+                .pipe(
+                    tap(() => this.toastService.addSuccess('登録しました。'))
+                ),
         ]);
     }
 }
