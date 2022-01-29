@@ -1,10 +1,10 @@
-import { Component, HostBinding, Input, OnInit } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
     selector: 'and-col',
     templateUrl: './col.component.html',
 })
-export class ColComponent implements OnInit {
+export class ColComponent {
     @Input() col: number = 12;
 
     @HostBinding('class')
@@ -13,6 +13,4 @@ export class ColComponent implements OnInit {
     }
 
     constructor() {}
-
-    ngOnInit(): void {}
 }

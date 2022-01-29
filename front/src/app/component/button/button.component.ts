@@ -1,17 +1,15 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
     selector: 'and-button',
     templateUrl: './button.component.html',
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
     @Input() label: string = 'label';
 
     @Output() click = new EventEmitter();
 
     constructor() {}
-
-    ngOnInit(): void {}
 
     onClick(event: MouseEvent): void {
         event.stopPropagation();

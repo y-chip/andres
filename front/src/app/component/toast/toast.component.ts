@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'and-toast',
@@ -11,8 +11,6 @@ import { Component, OnInit } from '@angular/core';
         `,
     ],
 })
-export class ToastComponent implements OnInit {
+export class ToastComponent {
     constructor() {}
-
-    ngOnInit(): void {}
 }
