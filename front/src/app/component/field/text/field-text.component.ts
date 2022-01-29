@@ -3,9 +3,9 @@ import { FieldComponent } from '../field.component';
 
 @Component({
     selector: 'and-field-text',
-    templateUrl: './text.component.html',
+    templateUrl: './field-text.component.html',
 })
-export class TextComponent extends FieldComponent<string> {
+export class FieldTextComponent extends FieldComponent<string> {
     constructor() {
         super();
     }

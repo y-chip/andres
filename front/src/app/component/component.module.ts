@@ -91,7 +91,7 @@ import { AppMenuComponent } from './layout/menu/app.menu.component';
 import { AppMenuitemComponent } from './layout/menuitem/app.menuitem.component';
 import { AppFooterComponent } from './layout/footer/app.footer.component';
 import { AppConfigComponent } from './layout/config/app.config.component';
-import { TextComponent } from './field/text/text.component';
+import { FieldTextComponent } from './field/text/field-text.component';
 import { ButtonComponent } from './button/button.component';
 import { ProgressSpinnerOverlayComponent } from './progress-spinner-overlay/progress-spinner-overlay.component';
 import { MessageComponent } from './message/message.component';
@@ -109,7 +109,7 @@ import { FieldComponent } from './field/field.component';
         ColComponent,
         CardComponent,
         FieldComponent,
-        TextComponent,
+        FieldTextComponent,
         ButtonComponent,
         ProgressSpinnerOverlayComponent,
         MessageComponent,
@@ -208,7 +208,7 @@ import { FieldComponent } from './field/field.component';
         GirdComponent,
         ColComponent,
         CardComponent,
-        TextComponent,
+        FieldTextComponent,
         ButtonComponent,
         ProgressSpinnerOverlayComponent,
         MessageComponent,
