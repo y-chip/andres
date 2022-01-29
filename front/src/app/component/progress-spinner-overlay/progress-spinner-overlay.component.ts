@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { ProgressSpinnerOverlayService } from '../../service/progress-spinner-overlay.service';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'and-progress-spinner-overlay',
@@ -15,10 +17,29 @@ import { animate, style, transition, trigger } from '@angular/animations';
         ]),
     ],
 })
-export class ProgressSpinnerOverlayComponent implements OnInit {
-    show: boolean = false;
+export class ProgressSpinnerOverlayComponent implements OnInit, OnDestroy {
+    showCnt: number = 0;
 
-    constructor() {}
+    private subscription = new Subscription();
 
-    ngOnInit(): void {}
+    constructor(
+        private progressSpinnerOverlayService: ProgressSpinnerOverlayService
+    ) {}
+
+    ngOnInit(): void {
+        this.subscription.add(
+            this.progressSpinnerOverlayService.show$.subscribe(
+                () => this.showCnt++
+            )
+        );
+        this.subscription.add(
+            this.progressSpinnerOverlayService.hide$.subscribe(
+                () => this.showCnt--
+            )
+        );
+    }
+
+    ngOnDestroy(): void {
+        this.subscription.unsubscribe();
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { PageComponent } from '../page.component';
 import { tap } from 'rxjs';
 import { SampleFormControllerService } from '../../../gen/api/sampleFormController.service';
@@ -14,9 +14,10 @@ export class SampleFormComponent extends PageComponent implements OnInit {
     sampleForm: SampleForm | undefined;
 
     constructor(
-        private sampleFormControllerService: SampleFormControllerService
+        private sampleFormControllerService: SampleFormControllerService,
+        injector: Injector
     ) {
-        super();
+        super(injector);
     }
 
     ngOnInit(): void {
