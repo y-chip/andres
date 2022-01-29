@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MessageService as PrimeNgMessageService } from 'primeng/api';
+
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentModule } from './component/component.module';
 
@@ -25,7 +27,10 @@ import { SampleFormComponent } from './page/sample-form/sample-form.component';
         ComponentModule,
     ],
     declarations: [AppComponent, AppMainComponent, SampleFormComponent],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+    providers: [
+        { provide: LocationStrategy, useClass: HashLocationStrategy },
+        PrimeNgMessageService,
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

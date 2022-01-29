@@ -94,6 +94,7 @@ import { AppConfigComponent } from './layout/config/app.config.component';
 import { TextComponent } from './field/text/text.component';
 import { ButtonComponent } from './button/button.component';
 import { ProgressSpinnerOverlayComponent } from './progress-spinner-overlay/progress-spinner-overlay.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
     declarations: [
@@ -108,6 +109,7 @@ import { ProgressSpinnerOverlayComponent } from './progress-spinner-overlay/prog
         TextComponent,
         ButtonComponent,
         ProgressSpinnerOverlayComponent,
+        MessageComponent,
     ],
     imports: [
         StyleClassModule,
@@ -205,6 +207,7 @@ import { ProgressSpinnerOverlayComponent } from './progress-spinner-overlay/prog
         TextComponent,
         ButtonComponent,
         ProgressSpinnerOverlayComponent,
+        MessageComponent,
     ],
 })
 export class ComponentModule {}
