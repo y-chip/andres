@@ -1,10 +1,10 @@
 <div class="field">
     <label [htmlFor]="name">{{ label }}</label>
     <input
-        pInputText
         [id]="name"
-        type="text"
         [ngModel]="value"
         (ngModelChange)="onChange($event)"
+        pInputText
+        type="text"
     />
 </div>
