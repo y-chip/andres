@@ -3,10 +3,10 @@
         <and-card title="Sample Form" *ngIf="sampleForm !== undefined">
             <and-field-text
                 name="text"
-                label="text"
+                label="文字列"
                 [(value)]="sampleForm.fieldText"
             ></and-field-text>
-            <and-button label="Submit" (click)="onSubmit()"></and-button>
+            <and-button label="登録" (click)="onSubmit()"></and-button>
         </and-card>
     </and-col>
 </and-gird>
