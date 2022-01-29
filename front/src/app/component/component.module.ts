@@ -53,6 +53,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { PasswordModule } from 'primeng/password';
 import { PickListModule } from 'primeng/picklist';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
 import { RippleModule } from 'primeng/ripple';
@@ -92,6 +93,7 @@ import { AppFooterComponent } from './layout/footer/app.footer.component';
 import { AppConfigComponent } from './layout/config/app.config.component';
 import { TextComponent } from './field/text/text.component';
 import { ButtonComponent } from './button/button.component';
+import { ProgressSpinnerOverlayComponent } from './progress-spinner-overlay/progress-spinner-overlay.component';
 
 @NgModule({
     declarations: [
@@ -105,6 +107,7 @@ import { ButtonComponent } from './button/button.component';
         CardComponent,
         TextComponent,
         ButtonComponent,
+        ProgressSpinnerOverlayComponent,
     ],
     imports: [
         StyleClassModule,
@@ -160,6 +163,7 @@ import { ButtonComponent } from './button/button.component';
         PasswordModule,
         PickListModule,
         ProgressBarModule,
+        ProgressSpinnerModule,
         RadioButtonModule,
         RatingModule,
         RippleModule,
@@ -200,6 +204,7 @@ import { ButtonComponent } from './button/button.component';
         CardComponent,
         TextComponent,
         ButtonComponent,
+        ProgressSpinnerOverlayComponent,
     ],
 })
 export class ComponentModule {}
