@@ -1,24 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
+import { FieldComponent } from '../field.component';
 
 @Component({
     selector: 'and-field-text',
     templateUrl: './text.component.html',
 })
-export class TextComponent implements OnInit {
-    @Input() name!: string;
-
-    @Input() label: string = 'label';
-
-    @Input() value: string | null = null;
-
-    @Output() valueChange = new EventEmitter<string | null>();
-
-    constructor() {}
-
-    ngOnInit(): void {
-        if (this.name === undefined) {
-            throw new Error('name is required');
-        }
+export class TextComponent extends FieldComponent<string> {
+    constructor() {
+        super();
     }
 
     onChange(value: string | null): void {

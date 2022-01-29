@@ -96,6 +96,7 @@ import { ButtonComponent } from './button/button.component';
 import { ProgressSpinnerOverlayComponent } from './progress-spinner-overlay/progress-spinner-overlay.component';
 import { MessageComponent } from './message/message.component';
 import { ToastComponent } from './toast/toast.component';
+import { FieldComponent } from './field/field.component';
 
 @NgModule({
     declarations: [
@@ -107,6 +108,7 @@ import { ToastComponent } from './toast/toast.component';
         GirdComponent,
         ColComponent,
         CardComponent,
+        FieldComponent,
         TextComponent,
         ButtonComponent,
         ProgressSpinnerOverlayComponent,
