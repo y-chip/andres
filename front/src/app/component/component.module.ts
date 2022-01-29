@@ -97,6 +97,7 @@ import { ProgressSpinnerOverlayComponent } from './progress-spinner-overlay/prog
 import { MessageComponent } from './message/message.component';
 import { ToastComponent } from './toast/toast.component';
 import { FieldComponent } from './field/field.component';
+import { FieldNumberComponent } from './field/number/field-number.component';
 
 @NgModule({
     declarations: [
@@ -114,6 +115,7 @@ import { FieldComponent } from './field/field.component';
         ProgressSpinnerOverlayComponent,
         MessageComponent,
         ToastComponent,
+        FieldNumberComponent,
     ],
     imports: [
         StyleClassModule,
@@ -213,6 +215,7 @@ import { FieldComponent } from './field/field.component';
         ProgressSpinnerOverlayComponent,
         MessageComponent,
         ToastComponent,
+        FieldNumberComponent,
     ],
 })
 export class ComponentModule {}

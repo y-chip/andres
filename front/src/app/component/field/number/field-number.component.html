@@ -1,0 +1,8 @@
+<div class="field">
+    <label [htmlFor]="name">{{ label }}</label>
+    <p-inputNumber
+        [id]="name"
+        [ngModel]="value"
+        (ngModelChange)="onChange($event)"
+    ></p-inputNumber>
+</div>

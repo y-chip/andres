@@ -6,6 +6,11 @@
                 label="文字列"
                 [(value)]="sampleForm.fieldText"
             ></and-field-text>
+            <and-field-number
+                name="number"
+                label="数値"
+                [(value)]="sampleForm.fieldNumber"
+            ></and-field-number>
             <and-button label="登録" (click)="onSubmit()"></and-button>
         </and-card>
     </and-col>
