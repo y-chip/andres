@@ -7,7 +7,7 @@ import { MessageService as PrimeNgMessageService } from 'primeng/api';
 export class ToastService {
     constructor(private primeNgMessageService: PrimeNgMessageService) {}
 
-    addInfo(summary: string, detail: string) {
+    addInfo(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'toast',
             severity: 'info',
@@ -16,7 +16,7 @@ export class ToastService {
         });
     }
 
-    addSuccess(summary: string, detail: string) {
+    addSuccess(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'toast',
             severity: 'success',
@@ -25,7 +25,7 @@ export class ToastService {
         });
     }
 
-    addWarn(summary: string, detail: string) {
+    addWarn(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'toast',
             severity: 'warn',
@@ -34,7 +34,7 @@ export class ToastService {
         });
     }
 
-    addError(summary: string, detail: string) {
+    addError(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'toast',
             severity: 'error',

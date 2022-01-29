@@ -7,7 +7,7 @@ import { MessageService as PrimeNgMessageService } from 'primeng/api';
 export class MessageService {
     constructor(private primeNgMessageService: PrimeNgMessageService) {}
 
-    addInfo(summary: string, detail: string) {
+    addInfo(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'message',
             severity: 'info',
@@ -16,7 +16,7 @@ export class MessageService {
         });
     }
 
-    addSuccess(summary: string, detail: string) {
+    addSuccess(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'message',
             severity: 'success',
@@ -25,7 +25,7 @@ export class MessageService {
         });
     }
 
-    addWarn(summary: string, detail: string) {
+    addWarn(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'message',
             severity: 'warn',
@@ -34,7 +34,7 @@ export class MessageService {
         });
     }
 
-    addError(summary: string, detail: string) {
+    addError(summary: string, detail?: string) {
         this.primeNgMessageService.add({
             key: 'message',
             severity: 'error',
