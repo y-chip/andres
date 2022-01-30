@@ -9,3 +9,19 @@ task npxPrettierWrite(group: 'npm', type: Exec) {
 task npxPrettierCheck(group: 'npm', type: Exec) {
     commandLine 'npx', 'prettier', '--check', '.'
 }
+
+task ngBuild(group: 'ng', type: Exec) {
+    commandLine 'ng', 'build', '--output-path', '../docs', '--base-href', '/andres/'
+}
+
+task copyIndexHtml(group: 'deploy', type: Copy) {
+    from '../docs'
+    into '../docs'
+    rename 'index.html', '404.html'
+}
+
+copyIndexHtml.dependsOn ngBuild
+
+task buildForGitHubPages(group: 'deploy') {}
+
+buildForGitHubPages.dependsOn copyIndexHtml
