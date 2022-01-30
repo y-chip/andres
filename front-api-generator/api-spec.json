@@ -29,6 +29,16 @@
                     }
                 ],
                 "responses": {
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK",
                         "content": {
@@ -68,6 +78,16 @@
                     "required": true
                 },
                 "responses": {
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    },
                     "200": {
                         "description": "OK"
                     }
@@ -77,6 +97,21 @@
     },
     "components": {
         "schemas": {
+            "ValidationError": {
+                "required": [
+                    "fieldName",
+                    "message"
+                ],
+                "type": "object",
+                "properties": {
+                    "fieldName": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
             "SampleForm": {
                 "required": [
                     "fieldDate",
