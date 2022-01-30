@@ -16,6 +16,7 @@ import { ComponentModule } from './component/component.module';
 import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
 import { SampleFormComponent } from './page/sample-form/sample-form.component';
+import { PageComponent } from './page/page.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,12 @@ import { SampleFormComponent } from './page/sample-form/sample-form.component';
         AppRoutingModule,
         ComponentModule,
     ],
-    declarations: [AppComponent, AppMainComponent, SampleFormComponent],
+    declarations: [
+        AppComponent,
+        AppMainComponent,
+        PageComponent,
+        SampleFormComponent,
+    ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         PrimeNgMessageService,

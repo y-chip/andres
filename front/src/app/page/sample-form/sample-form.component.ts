@@ -3,7 +3,6 @@ import { PageComponent } from '../page.component';
 import { tap } from 'rxjs';
 import { SampleFormControllerService } from '../../../gen/api/sampleFormController.service';
 import { SampleForm } from '../../../gen/model/sampleForm';
-import { ToastService } from '../../service/toast.service';
 
 @Component({
     selector: 'app-sample-form',
@@ -16,7 +15,6 @@ export class SampleFormComponent extends PageComponent implements OnInit {
 
     constructor(
         private sampleFormControllerService: SampleFormControllerService,
-        private toastService: ToastService,
         injector: Injector
     ) {
         super(injector);

@@ -1,17 +1,27 @@
 import { finalize, forkJoin, Observable } from 'rxjs';
-import { Injector } from '@angular/core';
+import { Component, Injector, QueryList, ViewChildren } from '@angular/core';
 import { ProgressSpinnerOverlayService } from '../service/progress-spinner-overlay.service';
 import { MessageService } from '../service/message.service';
+import { ValidationError } from '../../gen/model/validationError';
+import { ToastService } from '../service/toast.service';
+import { FieldComponent } from '../component/field/field.component';
 
+@Component({ template: '' })
 export class PageComponent {
     private progressSpinnerOverlayService: ProgressSpinnerOverlayService;
-    private messageService: MessageService;
+    protected messageService: MessageService;
+    protected toastService: ToastService;
+
+    @ViewChildren(FieldComponent) fields: QueryList<
+        FieldComponent<any>
+    > | null = null;
 
     constructor(private injector: Injector) {
         this.progressSpinnerOverlayService = injector.get(
             ProgressSpinnerOverlayService
         );
         this.messageService = injector.get(MessageService);
+        this.toastService = injector.get(ToastService);
     }
 
     protected http<T>(task: Observable<any>[]): void {
@@ -26,10 +36,32 @@ export class PageComponent {
     }
 
     private handleError(response: any): void {
-        this.messageService.addError(
-            '通信エラー',
-            '予期せぬエラーが発生しました。管理者に問い合わせてください。'
+        if (response.status === 400 && this.isValidationError(response.error)) {
+            this.toastService.addError('入力エラーがあります。');
+            this.showValidationError(response.error);
+        } else {
+            this.messageService.addError(
+                '通信エラー',
+                '予期せぬエラーが発生しました。管理者に問い合わせてください。'
+            );
+            console.error(response);
+        }
+    }
+
+    private isValidationError(arg: any): arg is ValidationError {
+        return (
+            arg !== null &&
+            typeof arg === 'object' &&
+            typeof arg.fieldName === 'string' &&
+            typeof arg.message === 'string'
         );
-        console.error(response);
+    }
+
+    private showValidationError(e: ValidationError): void {
+        this.fields?.forEach((f) => {
+            if (f.name === e.fieldName) {
+                // TODO
+            }
+        });
     }
 }
