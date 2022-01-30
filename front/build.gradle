@@ -17,6 +17,7 @@ task ngBuild(group: 'ng', type: Exec) {
 task copyIndexHtml(group: 'deploy', type: Copy) {
     from '../docs'
     into '../docs'
+    include 'index.html'
     rename 'index.html', '404.html'
 }
 
