@@ -17,6 +17,9 @@ import { AppComponent } from './app.component';
 import { AppMainComponent } from './app.main.component';
 import { SampleFormComponent } from './page/sample-form/sample-form.component';
 import { PageComponent } from './page/page.component';
+import { ApiModule } from '../gen/api.module';
+import { Configuration } from '../gen/configuration';
+import { environment } from '../environments/environment';
 
 @NgModule({
     imports: [
@@ -26,6 +29,11 @@ import { PageComponent } from './page/page.component';
         HttpClientModule,
         AppRoutingModule,
         ComponentModule,
+        ApiModule.forRoot(() => {
+            return new Configuration({
+                basePath: environment.apiBasePath,
+            });
+        }),
     ],
     declarations: [
         AppComponent,
