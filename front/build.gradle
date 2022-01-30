@@ -11,7 +11,7 @@ task npxPrettierCheck(group: 'npm', type: Exec) {
 }
 
 task ngBuild(group: 'ng', type: Exec) {
-    commandLine 'ng', 'build', '--output-path', '../docs', '--base-href', '/andres/'
+    commandLine 'ng', 'build', '--prod', '--output-path', '../docs', '--base-href', '/andres/'
 }
 
 task copyIndexHtml(group: 'deploy', type: Copy) {
