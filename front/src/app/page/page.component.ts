@@ -12,7 +12,9 @@ export class PageComponent {
     protected messageService: MessageService;
     protected toastService: ToastService;
 
-    @ViewChildren(FieldComponent) fields!: QueryList<FieldComponent<any>>;
+    @ViewChildren(FieldComponent) fields:
+        | QueryList<FieldComponent<any>>
+        | undefined;
 
     constructor(private injector: Injector) {
         this.progressSpinnerOverlayService = injector.get(
@@ -56,7 +58,7 @@ export class PageComponent {
     }
 
     private showValidationError(e: ValidationError): void {
-        this.fields.forEach((f) => {
+        this.fields?.forEach((f) => {
             if (f.name === e.fieldName) {
                 f.isForceDirty = true; // for show invalid message
                 f.isForceInvalid = true;
