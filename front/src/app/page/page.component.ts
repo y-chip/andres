@@ -26,6 +26,7 @@ export class PageComponent {
 
     protected http<T>(task: Observable<any>[]): void {
         this.messageService.clear();
+        this.clearValidationError();
         this.progressSpinnerOverlayService.show();
         forkJoin(task)
             .pipe(finalize(() => this.progressSpinnerOverlayService.hide()))
@@ -55,6 +56,14 @@ export class PageComponent {
             typeof arg.fieldName === 'string' &&
             typeof arg.message === 'string'
         );
+    }
+
+    private clearValidationError(): void {
+        this.fields?.forEach((f) => {
+            f.isForceDirty = false;
+            f.isForceInvalid = false;
+            f.invalidMessage = '';
+        });
     }
 
     private showValidationError(e: ValidationError): void {
