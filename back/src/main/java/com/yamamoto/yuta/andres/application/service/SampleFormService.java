@@ -1,7 +1,9 @@
 package com.yamamoto.yuta.andres.application.service;
 
 import com.yamamoto.yuta.andres.application.exception.UnexpectedException;
+import com.yamamoto.yuta.andres.application.exception.ValidationException;
 import com.yamamoto.yuta.andres.infrastructure.repository.SampleRepository;
+import com.yamamoto.yuta.andres.infrastructure.repository.entity.Sample;
 import com.yamamoto.yuta.andres.presentation.resource.SampleForm;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,14 @@ public class SampleFormService {
   }
 
   public void post(Integer id, SampleForm sampleForm) {
-    sampleRepository.updateByPrimaryKey(sampleForm.genSample(id));
+    var sample = sampleForm.genSample(id);
+    validate(sample);
+    sampleRepository.updateByPrimaryKey(sample);
+  }
+
+  private void validate(Sample sample) {
+    if (sample.getFieldText().contains("test")) {
+      throw new ValidationException("text", "「test」は入力できません。");
+    }
   }
 }
