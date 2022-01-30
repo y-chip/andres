@@ -41,3 +41,8 @@ task googleJavaFormatWrite(group: 'format', type: Exec) {
 task googleJavaFormatCheck(group: 'format', type: Exec) {
     commandLine 'zsh', '-c', 'java -jar ./formatter/google-java-format-1.13.0-all-deps.jar --dry-run $(git ls-files|grep \\.java$)'
 }
+
+task deployToHeroku(group: 'deploy', type: Exec) {
+    workingDir '../'
+    commandLine 'git', 'push', 'heroku'
+}
