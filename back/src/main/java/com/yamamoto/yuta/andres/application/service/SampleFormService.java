@@ -30,7 +30,10 @@ public class SampleFormService {
   }
 
   private void validate(Sample sample) {
-    if (sample.getFieldText().contains("test")) {
+
+    var text = sample.getFieldText();
+
+    if (text != null && text.contains("test")) {
       throw new ValidationException("text", "「test」は入力できません。");
     }
   }
