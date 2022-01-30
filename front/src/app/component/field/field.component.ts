@@ -9,4 +9,10 @@ export class FieldComponent<T> {
     @Input() value: T | null = null;
 
     @Output() valueChange = new EventEmitter<T | null>();
+
+    isForceDirty: boolean = false;
+
+    isForceInvalid: boolean = false;
+
+    invalidMessage: string = '';
 }

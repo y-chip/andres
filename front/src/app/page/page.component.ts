@@ -58,7 +58,9 @@ export class PageComponent {
     private showValidationError(e: ValidationError): void {
         this.fields.forEach((f) => {
             if (f.name === e.fieldName) {
-                // TODO
+                f.isForceDirty = true; // for show invalid message
+                f.isForceInvalid = true;
+                f.invalidMessage = e.message;
             }
         });
     }
