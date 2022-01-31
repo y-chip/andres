@@ -20,6 +20,7 @@ import { PageComponent } from './page/page.component';
 import { ApiModule } from '../gen/api.module';
 import { Configuration } from '../gen/configuration';
 import { environment } from '../environments/environment';
+import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
     imports: [
@@ -44,6 +45,7 @@ import { environment } from '../environments/environment';
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         PrimeNgMessageService,
+        httpInterceptorProviders,
     ],
     bootstrap: [AppComponent],
 })
