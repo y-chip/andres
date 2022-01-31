@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FieldComponent } from '../field.component';
 
 @Component({
@@ -7,6 +7,8 @@ import { FieldComponent } from '../field.component';
     providers: [{ provide: FieldComponent, useExisting: FieldTextComponent }],
 })
 export class FieldTextComponent extends FieldComponent<string> {
+    @Input() maxlength: number | null = null;
+
     constructor() {
         super();
     }

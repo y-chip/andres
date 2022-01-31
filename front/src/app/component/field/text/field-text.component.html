@@ -9,6 +9,7 @@
         [class.ng-invalid]="ngModel.invalid || isForceInvalid"
         pInputText
         type="text"
+        [maxlength]="maxlength"
     />
     <small
         *ngIf="(ngModel.invalid || isForceInvalid) && invalidMessage !== ''"
