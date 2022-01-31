@@ -98,6 +98,7 @@ import { MessageComponent } from './message/message.component';
 import { ToastComponent } from './toast/toast.component';
 import { FieldComponent } from './field/field.component';
 import { FieldNumberComponent } from './field/number/field-number.component';
+import { FieldTextareaComponent } from './field/textarea/field-textarea.component';
 
 @NgModule({
     declarations: [
@@ -116,6 +117,7 @@ import { FieldNumberComponent } from './field/number/field-number.component';
         MessageComponent,
         ToastComponent,
         FieldNumberComponent,
+        FieldTextareaComponent,
     ],
     imports: [
         StyleClassModule,
@@ -216,6 +218,7 @@ import { FieldNumberComponent } from './field/number/field-number.component';
         MessageComponent,
         ToastComponent,
         FieldNumberComponent,
+        FieldTextareaComponent,
     ],
 })
 export class ComponentModule {}

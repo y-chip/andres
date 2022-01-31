@@ -1,0 +1,20 @@
+<div class="field">
+    <label [htmlFor]="name">{{ label }}</label>
+    <textarea
+        [id]="name"
+        [ngModel]="value"
+        (ngModelChange)="onChange($event)"
+        #ngModel="ngModel"
+        [class.ng-dirty]="ngModel.dirty || isForceDirty"
+        [class.ng-invalid]="ngModel.invalid || isForceInvalid"
+        pInputTextarea
+        [autoResize]="true"
+        [maxlength]="maxlength"
+    ></textarea>
+    <small
+        *ngIf="(ngModel.invalid || isForceInvalid) && invalidMessage !== ''"
+        class="p-error"
+    >
+        {{ invalidMessage }}
+    </small>
+</div>
