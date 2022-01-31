@@ -72,6 +72,11 @@ export class PageComponent {
                 f.isForceDirty = true; // for show invalid message
                 f.isForceInvalid = true;
                 f.invalidMessage = e.message;
+                f.field?.nativeElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center',
+                    inline: 'center',
+                });
             }
         });
     }
