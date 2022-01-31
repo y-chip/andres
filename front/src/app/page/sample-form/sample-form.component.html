@@ -18,6 +18,11 @@
                 label="数値"
                 [(value)]="sampleForm.fieldNumber"
             ></and-field-number>
+            <and-field-date
+                name="date"
+                label="日付"
+                [(value)]="sampleForm.fieldDate"
+            ></and-field-date>
             <and-button label="登録" (click)="onSubmit()"></and-button>
         </and-card>
     </and-col>

@@ -1,0 +1,18 @@
+<div class="field">
+    <label [htmlFor]="name">{{ label }}</label>
+    <p-calendar
+        [id]="name"
+        [ngModel]="value"
+        (ngModelChange)="onChange($event)"
+        #ngModel="ngModel"
+        [class.ng-dirty]="ngModel.dirty || isForceDirty"
+        [class.ng-invalid]="ngModel.invalid || isForceInvalid"
+        dateFormat="yy/mm/dd"
+    ></p-calendar>
+    <small
+        *ngIf="(ngModel.invalid || isForceInvalid) && invalidMessage !== ''"
+        class="p-error"
+    >
+        {{ invalidMessage }}
+    </small>
+</div>
