@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
+import { MasterFormControllerService } from './api/masterFormController.service';
 import { SampleFormControllerService } from './api/sampleFormController.service';
 
 @NgModule({

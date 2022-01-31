@@ -93,6 +93,39 @@
                     }
                 }
             }
+        },
+        "/master-form": {
+            "get": {
+                "tags": [
+                    "master-form-controller"
+                ],
+                "operationId": "get_1",
+                "responses": {
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationError"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/MasterForm"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -160,6 +193,24 @@
                     },
                     "fieldSwitch": {
                         "type": "boolean",
+                        "nullable": true
+                    }
+                }
+            },
+            "MasterForm": {
+                "required": [
+                    "code",
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
                         "nullable": true
                     }
                 }
