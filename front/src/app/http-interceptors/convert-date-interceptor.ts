@@ -17,7 +17,6 @@ export class ConvertDateInterceptor implements HttpInterceptor {
         req: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        console.log('here');
         return next.handle(req).pipe(
             map((val: HttpEvent<any>) => {
                 if (val instanceof HttpResponse) {
