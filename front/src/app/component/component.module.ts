@@ -100,6 +100,7 @@ import { FieldComponent } from './field/field.component';
 import { FieldNumberComponent } from './field/number/field-number.component';
 import { FieldTextareaComponent } from './field/textarea/field-textarea.component';
 import { FieldDateComponent } from './field/date/field-date.component';
+import { FieldSelectComponent } from './field/select/field-select.component';
 
 @NgModule({
     declarations: [
@@ -120,6 +121,7 @@ import { FieldDateComponent } from './field/date/field-date.component';
         FieldNumberComponent,
         FieldTextareaComponent,
         FieldDateComponent,
+        FieldSelectComponent,
     ],
     imports: [
         StyleClassModule,
@@ -222,6 +224,7 @@ import { FieldDateComponent } from './field/date/field-date.component';
         FieldNumberComponent,
         FieldTextareaComponent,
         FieldDateComponent,
+        FieldSelectComponent,
     ],
 })
 export class ComponentModule {}

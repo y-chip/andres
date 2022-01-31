@@ -23,6 +23,14 @@
                 label="日付"
                 [(value)]="sampleForm.fieldDate"
             ></and-field-date>
+            <and-field-select
+                name="select"
+                label="選択"
+                [(value)]="sampleForm.fieldSelect"
+                [options]="masterForms"
+                optionValue="code"
+                optionLabel="name"
+            ></and-field-select>
             <and-button label="登録" (click)="onSubmit()"></and-button>
         </and-card>
     </and-col>
