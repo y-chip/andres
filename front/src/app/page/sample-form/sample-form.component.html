@@ -1,37 +1,57 @@
 <and-gird>
     <and-col>
         <and-card title="Sample Form" *ngIf="sampleForm !== undefined">
-            <and-field-text
-                name="text"
-                label="文字列"
-                [(value)]="sampleForm.fieldText"
-                [maxlength]="50"
-            ></and-field-text>
-            <and-field-textarea
-                name="textarea"
-                label="文字列（改行可能）"
-                [(value)]="sampleForm.fieldTextarea"
-                [maxlength]="300"
-            ></and-field-textarea>
-            <and-field-number
-                name="number"
-                label="数値"
-                [(value)]="sampleForm.fieldNumber"
-            ></and-field-number>
-            <and-field-date
-                name="date"
-                label="日付"
-                [(value)]="sampleForm.fieldDate"
-            ></and-field-date>
-            <and-field-select
-                name="select"
-                label="選択"
-                [(value)]="sampleForm.fieldSelect"
-                [options]="masterForms"
-                optionValue="code"
-                optionLabel="name"
-            ></and-field-select>
-            <and-button label="登録" (click)="onSubmit()"></and-button>
+            <and-gird>
+                <and-col>
+                    <and-field-text
+                        name="text"
+                        label="文字列"
+                        [(value)]="sampleForm.fieldText"
+                        [maxlength]="50"
+                    ></and-field-text>
+                </and-col>
+            </and-gird>
+            <and-gird>
+                <and-col>
+                    <and-field-textarea
+                        name="textarea"
+                        label="文字列（改行可能）"
+                        [(value)]="sampleForm.fieldTextarea"
+                        [maxlength]="300"
+                    ></and-field-textarea>
+                </and-col>
+            </and-gird>
+            <and-gird>
+                <and-col [col]="4">
+                    <and-field-number
+                        name="number"
+                        label="数値"
+                        [(value)]="sampleForm.fieldNumber"
+                    ></and-field-number>
+                </and-col>
+                <and-col [col]="4">
+                    <and-field-date
+                        name="date"
+                        label="日付"
+                        [(value)]="sampleForm.fieldDate"
+                    ></and-field-date>
+                </and-col>
+                <and-col [col]="4">
+                    <and-field-select
+                        name="select"
+                        label="選択"
+                        [(value)]="sampleForm.fieldSelect"
+                        [options]="masterForms"
+                        optionValue="code"
+                        optionLabel="name"
+                    ></and-field-select>
+                </and-col>
+            </and-gird>
+            <and-gird>
+                <and-col>
+                    <and-button label="登録" (click)="onSubmit()"></and-button>
+                </and-col>
+            </and-gird>
         </and-card>
     </and-col>
 </and-gird>
