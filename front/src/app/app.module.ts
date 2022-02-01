@@ -21,6 +21,7 @@ import { ApiModule } from '../gen/api.module';
 import { Configuration } from '../gen/configuration';
 import { environment } from '../environments/environment';
 import { httpInterceptorProviders } from './http-interceptors';
+import { CatComponent } from './page/cat/cat.component';
 
 @NgModule({
     imports: [
@@ -41,6 +42,7 @@ import { httpInterceptorProviders } from './http-interceptors';
         AppMainComponent,
         PageComponent,
         SampleFormComponent,
+        CatComponent,
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },

@@ -2,6 +2,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppMainComponent } from './app.main.component';
 import { SampleFormComponent } from './page/sample-form/sample-form.component';
+import { CatComponent } from './page/cat/cat.component';
 
 @NgModule({
     imports: [
@@ -10,7 +11,10 @@ import { SampleFormComponent } from './page/sample-form/sample-form.component';
                 {
                     path: '',
                     component: AppMainComponent,
-                    children: [{ path: '', component: SampleFormComponent }],
+                    children: [
+                        { path: 'sample-form', component: SampleFormComponent },
+                        { path: 'cat', component: CatComponent },
+                    ],
                 },
                 { path: '**', redirectTo: '' },
             ],

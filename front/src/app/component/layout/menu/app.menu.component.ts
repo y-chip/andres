@@ -45,7 +45,12 @@ export class AppMenuComponent implements OnInit {
                     {
                         label: 'Sample Form',
                         icon: 'pi pi-fw pi-id-card',
-                        routerLink: ['sampleform'],
+                        routerLink: ['sample-form'],
+                    },
+                    {
+                        label: 'Cat',
+                        icon: 'pi pi-fw pi-id-card',
+                        routerLink: ['cat'],
                     },
                 ],
             },
