@@ -1,7 +1,9 @@
 package com.yamamoto.yuta.andres.infrastructure.repository;
 
 import com.yamamoto.yuta.andres.infrastructure.repository.entity.Sample;
+import com.yamamoto.yuta.andres.infrastructure.repository.entity.SampleExample;
 import com.yamamoto.yuta.andres.infrastructure.repository.mapper.SampleMapper;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
@@ -20,5 +22,14 @@ public class SampleRepository {
 
   public void updateByPrimaryKey(Sample sample) {
     sampleMapper.updateByPrimaryKey(sample);
+  }
+
+  public List<Sample> selectByFieldText(String fieldText) {
+
+    var example = new SampleExample();
+
+    example.createCriteria().andFieldTextEqualTo(fieldText);
+
+    return sampleMapper.selectByExample(example);
   }
 }
